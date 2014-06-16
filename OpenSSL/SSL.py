@@ -1052,7 +1052,7 @@ class Connection(object):
         buf = _ffi.new("char[]", nbytes)
         result = _lib.SSL_read(self._ssl, buf, nbytes)
         self._raise_ssl_error(self._ssl, result)
-        buffer[:result] = _ffi.buffer(buf, result)[:]
+        buffer[:result] = _ffi.buffer(buf, result)
         return result
 
 
